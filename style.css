@@ -6,20 +6,46 @@ h5 {
     position: relative;
     top: 150px;
 }
-nav {
-    background-color: rgba(0, 0, 0, 0.226);
-    height: 50px;
-    width: 100%;
-    text-align: left;
-    padding-left: 20px;
-    border-style: solid;
-    border-color: midnightblue;
-    border-width: 2px;
-    line-height: 50px;
-    font-weight: bold;
-    color: white;
+/* Top navigation bar */
+.top-nav {
+    display: flex;               /* arrange child items horizontally */
+    gap: 8px;                    /* spacing between items */
+    align-items: center;         /* vertical centering */
+    padding: 6px 12px;           /* inner spacing */
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.45);
+    border: 2px solid midnightblue;
+    position: sticky;            /* keeps nav at the top while scrolling */
+    top: 0;
+    z-index: 1000;
 }
 
+/* Make sure page content isn't hidden under the sticky nav */
 body {
     background-color: rgba(0, 0, 0, 0.63);
+    padding-top: 20px; /* same as nav height */
+}
+
+/* Individual nav items styled as buttons */
+.nav-item {
+    background: transparent;
+    color: white;
+    border: 2px solid transparent;
+    padding: 8px 12px;
+    font-weight: bold;
+    line-height: 1;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.nav-item:hover,
+.nav-item:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    outline: none;
+}
+
+/* Make the nav items wrap on very small screens */
+.top-nav {
+    flex-wrap: wrap;
 }
